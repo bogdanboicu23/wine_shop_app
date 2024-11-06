@@ -6,7 +6,8 @@ class WineCard extends StatelessWidget {
   final bool available;
   final String price;
 
-  WineCard({
+  const WineCard({
+    super.key,
     required this.name,
     required this.type,
     required this.available,
@@ -16,21 +17,24 @@ class WineCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(vertical: 8),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset('assets/wine_bottle.png', height: 80, width: 40), // Adaugă un asset pentru imagine
-            SizedBox(width: 16),
+            Image.asset('assets/wine_bottle.png',
+                height: 80, width: 40), // Adaugă un asset pentru imagine
+            const SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                  Text(type, style: TextStyle(color: Colors.grey)),
-                  SizedBox(height: 8),
+                  Text(name,
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold)),
+                  Text(type, style: const TextStyle(color: Colors.grey)),
+                  const SizedBox(height: 8),
                   Row(
                     children: [
                       Text(
@@ -40,8 +44,10 @@ class WineCard extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Spacer(),
-                      Text(price, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                      const Spacer(),
+                      Text(price,
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ],
