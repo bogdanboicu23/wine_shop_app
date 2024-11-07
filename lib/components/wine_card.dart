@@ -23,7 +23,7 @@ class WineCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset('assets/wine_bottle.png',
+            Image.asset('assets/win3.jpeg',
                 height: 80, width: 40), // Adaugă un asset pentru imagine
             const SizedBox(width: 16),
             Expanded(

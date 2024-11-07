@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wine_shop_app/components/filter.dart';
 import 'package:wine_shop_app/components/top_wine_card.dart';
+import 'package:wine_shop_app/components/wine_card.dart';
 import 'package:wine_shop_app/models/wine.dart';
 import 'package:wine_shop_app/utils/utils.dart';
 import 'components/header.dart';
@@ -85,33 +86,33 @@ class _WineShopScreenState extends State<WineShopScreen> {
               },
             ),
           ),
-          // const Padding(
-          //   padding: EdgeInsets.symmetric(horizontal: 16.0),
-          //   child: Column(
-          //     children: [
-          //       WineCard(
-          //           name: "Ocone Bozzovich",
-          //           type: "Red wine",
-          //           available: true,
-          //           price: "\$234"),
-          //       WineCard(
-          //           name: "2021 Petit Chablis",
-          //           type: "White wine",
-          //           available: true,
-          //           price: "\$443"),
-          //       WineCard(
-          //           name: "Philippe Fontaine",
-          //           type: "Sparkling wine",
-          //           available: false,
-          //           price: "\$599"),
-          //       WineCard(
-          //           name: "2021 Cicada's Song Rosé",
-          //           type: "Rosé wine",
-          //           available: true,
-          //           price: "\$322"),
-          //     ],
-          //   ),
-          // ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              children: [
+                WineCard(
+                    name: "Ocone Bozzovich",
+                    type: "Red wine",
+                    available: true,
+                    price: "\$234"),
+                WineCard(
+                    name: "2021 Petit Chablis",
+                    type: "White wine",
+                    available: true,
+                    price: "\$443"),
+                WineCard(
+                    name: "Philippe Fontaine",
+                    type: "Sparkling wine",
+                    available: false,
+                    price: "\$599"),
+                WineCard(
+                    name: "2021 Cicada's Song Rosé",
+                    type: "Rosé wine",
+                    available: true,
+                    price: "\$322"),
+              ],
+            ),
+          ),
         ],
       ),
     );
