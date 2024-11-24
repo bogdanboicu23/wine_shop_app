@@ -32,7 +32,7 @@ class WineShopScreen extends StatefulWidget {
 }
 
 class _WineShopScreenState extends State<WineShopScreen> {
-  List<Wine> winesList = [];
+  final List<Wine> _winesList = [];
 
   @override
   void initState() {
@@ -41,10 +41,10 @@ class _WineShopScreenState extends State<WineShopScreen> {
   }
 
   void _getData() async {
-    final jsonString = await rootBundle.loadString("assets/data/events.json");
+    final jsonString = await rootBundle.loadString("assets/v3.json");
     final jsonData = jsonDecode(jsonString);
     for (var data in jsonData["carousel"]) {
-      winesList.add(Wine.fromJson(data));
+      _winesList.add(Wine.fromJson(data));
     }
     setState(() {});
   }
@@ -86,32 +86,43 @@ class _WineShopScreenState extends State<WineShopScreen> {
               },
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              children: [
+          SizedBox(height: screenSize.height * 0.02),
+          Row(
+            children: [
+              const Text(
+                "Wine",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const Spacer(),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "view all",
+                  style: TextStyle(
+                    color: primaryColor,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Column(
+            children: [
+              for (var wine in _winesList)
                 WineCard(
-                    name: "Ocone Bozzovich",
-                    type: "Red wine",
-                    available: true,
-                    price: "\$234"),
-                WineCard(
-                    name: "2021 Petit Chablis",
-                    type: "White wine",
-                    available: true,
-                    price: "\$443"),
-                WineCard(
-                    name: "Philippe Fontaine",
-                    type: "Sparkling wine",
-                    available: false,
-                    price: "\$599"),
-                WineCard(
-                    name: "2021 Cicada's Song Rosé",
-                    type: "Rosé wine",
-                    available: true,
-                    price: "\$322"),
-              ],
-            ),
+                  wineInfo: wine,
+                  onFavoriteTap: () {
+                    final foundWine = _winesList.firstWhere((e) => e == wine);
+                    setState(() {
+                      foundWine.isFavorite = !foundWine.isFavorite;
+                    });
+                  },
+                ),
+              SizedBox(height: screenSize.height * 0.05),
+            ],
           ),
         ],
       ),
